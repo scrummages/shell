@@ -1,0 +1,21 @@
+#!/bin/bash
+
+generate_random_string() {
+    local length=$1
+    head /dev/urandom | tr -dc 'a-zA-Z0-9' | head -c "$length"; echo
+}
+
+generate_random_word() {
+    local length=$1
+    local word
+    while true; do
+        word=$(shuf -n 1 /usr/share/dict/british-english | tr -d '\n' | cut -c 1-"$length")
+        [[ $word != *\'s ]] && break
+    done
+    echo "$word"
+}
+
+words=$(for length in {10..20}; do generate_random_word "$length"; done)
+strings=$(for length in {10..20}; do generate_random_string "$length"; done)
+
+echo -e "$words\n$strings" | rofi -dmenu -font "Terminus 19" -theme Monokai | xclip -selection clipboard

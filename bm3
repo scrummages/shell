@@ -1,0 +1,34 @@
+#!/bin/bash
+
+file_path="$HOME/Media/bm3_data.txt"
+
+delete_entry() {
+    selected_line=$(cat "$file_path" | rofi -dmenu -p "Select information to delete" -width 60 -location 0 -font 'Terminus 19' -theme Monokai)
+    [ -n "$selected_line" ] && sed -i "/$(echo "$selected_line" | sed 's/[\/&]/\\&/g')/d" "$file_path"
+}
+
+save_info() {
+    echo "$(date '+%Y-%m-%d %H:%M:%S'): $1" >> "$file_path"
+}
+
+select_info() {
+    selected_line=$(cat "$file_path" | rofi -dmenu -p "Select information" -width 60 -location 0 -font 'Terminus 19' -theme Monokai)
+    [ -n "$selected_line" ] && echo -n "$selected_line" | cut -d' ' -f3- | xclip -selection clipboard
+}
+
+options=("save information (w)" "show information (x)" "delete entry (d)")
+
+selected_option=$(printf "%s\n" "${options[@]}" | rofi -dmenu -p "Select an option" -font 'Terminus 19' -theme Monokai)
+
+case $selected_option in
+    "save information (w)")
+        new_info=$(rofi -dmenu -p "Enter information to save" -font 'Terminus 19' -theme Monokai)
+        save_info "$new_info"
+        ;;
+    "show information (x)")
+        select_info
+        ;;
+    "delete entry (d)")
+        delete_entry
+        ;;
+esac

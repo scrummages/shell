@@ -1,0 +1,19 @@
+#!/bin/bash
+
+selected_file="/home/clyde/Media/PDF and Books/Oxford English Dictionary.txt"
+
+# If a file is selected, display its content in a multiple-line Rofi prompt
+if [ -n "$selected_file" ]; then
+    file_path="$selected_file"
+    
+    # Remove empty lines from the file content
+    file_content=$(grep -v '^$' "$file_path" | rofi -font 'Terminus 19' -theme Monokai -dmenu -i -p "Search in dictionary" -mesg "")
+    
+    if [ -n "$file_content" ]; then
+        # Display the content in Rofi
+        rofi -font 'Terminus 19' -theme Monokai -e "$file_content"
+
+        # Copy the selected text to the clipboard using xclip
+        echo -n "$file_content" | xclip -selection clipboard
+    fi
+fi

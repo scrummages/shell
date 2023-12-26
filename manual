@@ -1,0 +1,38 @@
+#!/bin/bash
+
+keybindings=$(cat <<EOF
+Keybindings Manual
+
+- \$mod+u: Open this manual.
+
+Workspace Navigation
+- \$mod+Tab: Switch to the previous or next workspace.
+
+File Managers
+- \$mod+x: Open Nemo file manager.
+- \$mod+Shift+x: Open Ranger file manager in micro editor.
+- \$mod+a: Open Ranger file manager in a specific directory.
+
+Application Launchers
+- \$mod+k: Open Rofi calculator, copy result to clipboard.
+- \$mod+z: Open Flameshot for taking screenshots.
+- \$mod+c: Execute the "emote" command.
+
+Custom Shell Scripts
+- \$mod+m: Execute bm3 Text saving script.
+- \$mod+n: Execute weblinks Web bookmarks script.
+- \$mod+p: Execute genrandom Random string generator script.
+- \$mod+g: Execute google Google search script.
+- \$mod+b: Execute autobluetooth script.
+- \$mod+o: Execute dictionary script.
+- \$mod+i: Execute networkmanager script.
+- \$mod+Shift+m: Open local notepad with micro editor.
+
+System Information
+- \$mod+Escape: Open Rofi with system information (IP address).
+
+Note: \$mod refers to your modifier key (commonly Alt or Super/Windows key).
+EOF
+)
+
+echo -e "$keybindings" | rofi -dmenu -p "Keybindings" -markup-rows -lines 40 -font 'Terminus 19' -theme Monokai | xargs -I {} sh -c "echo {} | rofi -dmenu -p 'Details' -sb ffffff -lines 40 -font 'Terminus 19' -theme Monokai -y \$((\$(xdotool getdisplaygeometry | cut -d' ' -f1) / 2 - 10))"

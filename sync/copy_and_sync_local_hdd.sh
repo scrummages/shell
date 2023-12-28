@@ -31,9 +31,9 @@ cp ~/.bashrc ~/Media/Configs/.bashrc \
 && cp -av ~/.config/picom.conf ~/Media/Configs/picom.conf \
 && sudo cryptsetup luksOpen $device_name hdd \
 && sudo mount /dev/mapper/hdd /mnt/hdd \
-&& rsync -av --dry-run --delete ~/Media/ /mnt/hdd > /tmp/rsync; grep --color=auto -E "^deleting" /tmp/rsync; read -p "Do you wish to continue? (y/n) " user_response \
+&& rsync -av --dry-run --delete --exclude WIKIs ~/Media/ /mnt/hdd > /tmp/rsync; grep --color=auto -E "^deleting" /tmp/rsync; read -p "Do you wish to continue? (y/n) " user_response \
 && if [[ $user_response =~ ^[Yy]$ ]]; then
-    rsync -av --delete ~/Media/ /mnt/hdd
+    rsync -av --delete --exclude WIKIs ~/Media/ /mnt/hdd
 fi \
 && sudo umount /mnt/hdd \
 && sudo cryptsetup luksClose hdd

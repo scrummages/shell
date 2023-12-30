@@ -1,6 +1,6 @@
 #!/bin/bash
 
-file_path="$HOME/Media/bm3_data.txt"
+file_path="$HOME/Media/Random/bm3_data.txt"
 
 delete_entry() {
     selected_line=$(cat "$file_path" | rofi -dmenu -p "Select information to delete" -width 60 -location 0 -font 'Terminus 19' -theme Monokai)

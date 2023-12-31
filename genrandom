@@ -2,7 +2,8 @@
 
 generate_random_string() {
     local length=$1
-    head /dev/urandom | tr -dc 'a-zA-Z0-9' | head -c "$length"; echo
+    # head /dev/urandom | tr -dc 'a-zA-Z0-9' | head -c "$length"; echo
+    openssl rand -base64 $length
 }
 
 generate_random_word() {
@@ -15,7 +16,11 @@ generate_random_word() {
     echo "$word"
 }
 
-words=$(for length in {10..20}; do generate_random_word "$length"; done)
-strings=$(for length in {10..20}; do generate_random_string "$length"; done)
+strings+="---------\n"
 
+words=$(for length in {10..20}; do generate_random_word "$length"; done)
+for ((length = 3; length <= 18; length += 3)); do
+    random_string=$(generate_random_string "$length")
+    strings+="$random_string\n"
+done
 echo -e "$words\n$strings" | rofi -dmenu -font "Terminus 19" -theme Monokai | xclip -selection clipboard

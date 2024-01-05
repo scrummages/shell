@@ -13,16 +13,13 @@ folder="$HOME/Recordings/screenshot-recordings$d"
 while true; do
     filename="$folder/screenshot_$counter.png"
 
-    # Capture screenshot with scrot
     scrot -pzq 1 -Z 9 "$filename"
 
-    # Convert the screenshot to WebP
-    cwebp -q 30 "$filename" -o "$folder/screenshot_$counter.webp"
-
-    # Delete the original file
+    # cwebp -q 70 "$filename" -o "$folder/screenshot_$counter.webp"
+    avifenc -q 70 "$filename" -o "$folder/screenshot_$counter.avif"
+    
     rm "$filename"
 
-    # Increment the counter
     ((counter++))
 
     sleep 5

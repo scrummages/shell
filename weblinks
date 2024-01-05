@@ -21,52 +21,52 @@ set selected (echo $options | rofi -dmenu -font "Terminus 19" -theme Monokai)
 
 switch $selected
     case "chatgpt"
-        firefox "https://chat.openai.com/chat/"
+        waterfox "https://chat.openai.com/chat/"
         ;;
     case "bing ai"
-        firefox "https://www.bing.com/search?q=Bing+AI&showconv=1&FORM=hpcodx/"
+        waterfox "https://www.bing.com/search?q=Bing+AI&showconv=1&FORM=hpcodx/"
         ;;
     case "gmail"
-        firefox "https://gmail.com/"
+        waterfox "https://gmail.com/"
         ;;
     case "twitter"
-        firefox "https://twitter.com/"
+        waterfox "https://twitter.com/"
         ;;
     case "twitch"
-        firefox "https://www.twitch.tv/"
+        waterfox "https://www.twitch.tv/"
         ;;
     case "youtube"
-        firefox "https://www.youtube.com/"
+        waterfox "https://www.youtube.com/"
         ;;
     case "wikipedia"
-        firefox "https://en.wikipedia.org/"
+        waterfox "https://en.wikipedia.org/"
         ;;
     case "wiktionary"
-        firefox "https://es.wiktionary.org/"
+        waterfox "https://es.wiktionary.org/"
         ;;
     case "oxford dictionary"
-        firefox "https://www.oxfordlearnersdictionaries.com/"
+        waterfox "https://www.oxfordlearnersdictionaries.com/"
         ;;
     case "dle rae"
-        firefox "https://dle.rae.es/diccionario/"
+        waterfox "https://dle.rae.es/diccionario/"
         ;;
     case "pinterest"
-        firefox "https://www.pinterest.com/"
+        waterfox "https://www.pinterest.com/"
         ;;
     case "reddit"
-        firefox "https://www.reddit.com/"
+        waterfox "https://www.reddit.com/"
         ;;
     case "instagram"
-        firefox "https://www.instagram.com/"
+        waterfox "https://www.instagram.com/"
         ;;
     case "mastodon"
-        firefox "https://joinmastodon.org/"
+        waterfox "https://joinmastodon.org/"
         ;;
     case "4chan.org/g/"
-        firefox "https://4chan.org/g/catalog"
+        waterfox "https://4chan.org/g/catalog"
         ;;
     case "123movies"
-        firefox "https://ww2.123moviesfree.net/"
+        waterfox "https://ww2.123moviesfree.net/"
         ;;
     case "*"
         # Handle unexpected input

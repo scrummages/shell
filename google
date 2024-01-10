@@ -1,10 +1,7 @@
 #!/bin/bash
 
-# Get user input using Rofi
 query=$(rofi -dmenu -i -p "Google search" -font 'Tamzen 15' -theme Monokai -show-icons -lines 0 -no-fixed-num-lines)
 
-# Check if the user entered a query
 if [ -n "$query" ]; then
-    # Open Firefox and search on Google
-    waterfox "https://www.google.com/search?q=$query" &
+    waterfox "https://www.google.es/search?q=$query" &
 fi

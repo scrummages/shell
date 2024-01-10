@@ -14,10 +14,11 @@ pinterest
 reddit
 instagram
 mastodon
-4chan.org/g/
-123movies"
+123movies
+ebay thinkpads
+amazon"
 
-set selected (echo $options | rofi -dmenu -font "Terminus 19" -theme Monokai)
+set selected (echo $options | rofi -dmenu -font "Tamzen 15" -theme Monokai)
 
 switch $selected
     case "chatgpt"
@@ -60,15 +61,15 @@ switch $selected
         waterfox "https://www.instagram.com/"
         ;;
     case "mastodon"
-        waterfox "https://joinmastodon.org/"
-        ;;
-    case "4chan.org/g/"
-        waterfox "https://4chan.org/g/catalog"
+        waterfox "mastodon.social/"
         ;;
     case "123movies"
         waterfox "https://ww2.123moviesfree.net/"
         ;;
-    case "*"
-        # Handle unexpected input
+    case "amazon"
+        waterfox "amazon.es"
+        ;;
+    case "ebay thinkpads"
+        waterfox "https://www.ebay.es/sch/i.html?_from=R40&_nkw=thinkpad&_sacat=0&LH_ItemCondition=3000&LH_BIN=1&LH_PrefLoc=3&_udhi=60&_sop=12"
         ;;
 end

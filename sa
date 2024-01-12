@@ -1,0 +1,10 @@
+#!/bin/sh
+
+function sa() {
+	where="xclip-$(cat /tmp/r)"
+	echo -n "$RANDOM$RANDOM" > /tmp/r && \
+	xclip -selection clipboard -t image/png -o > $where.png && \
+	cjxl --lossless_jpeg=1 $where.png $where.jxl && rm $where.png || echo "error saving pic"
+}
+
+sa

@@ -1,1 +1,0 @@
-i3 ly nemo ranger rofi-calc librewolf words iwd alacritty dmenu rofi terminus-font ttf-joypixels xorg xorg-xinit dhcpcd networkmanager

@@ -15,12 +15,10 @@ while true; do
 
     scrot -pzq 1 -Z 9 "$filename"
 
-    # cwebp -q 70 "$filename" -o "$folder/screenshot_$counter.webp"
-    avifenc -q 70 "$filename" -o "$folder/screenshot_$counter.avif"
+    time avifenc "$filename" -o "$folder/screenshot_$counter.avif" 
     
     rm "$filename"
 
     ((counter++))
-
-    sleep 5
+    
 done

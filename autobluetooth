@@ -3,7 +3,7 @@
 
 # Check if Bluetooth is enabled
 if ! bluetoothctl show | grep -q "Powered: yes"; then
-    rofi -font 'Tamzen 15' -theme Monokai -e "Bluetooth is not enabled. Please enable Bluetooth and try again."
+    rofi -font 'Tamzen 15' -theme glue_pro_blue -e "Bluetooth is not enabled. Please enable Bluetooth and try again."
     exit 1
 fi
 
@@ -12,12 +12,12 @@ headset_mac=$(bluetoothctl devices | grep -Eo "([0-9A-Fa-f]{2}:){5}([0-9A-Fa-f]{
 
 # Check if there are available devices
 if [ -z "$headset_mac" ]; then
-    rofi -font 'Tamzen 15' -theme Monokai -e "No Bluetooth devices found. Please make sure your headset is discoverable."
+    rofi -font 'Tamzen 15' -theme glue_pro_blue -e "No Bluetooth devices found. Please make sure your headset is discoverable."
     exit 1
 fi
 
 # Create a rofi menu for headset selection
-selected_headset=$(bluetoothctl devices | rofi -dmenu -font 'Tamzen 15' -theme Monokai -p "Select Bluetooth headset:" | grep -Eo "([0-9A-Fa-f]{2}:){5}([0-9A-Fa-f]{2})")
+selected_headset=$(bluetoothctl devices | rofi -dmenu -font 'Tamzen 15' -theme glue_pro_blue -p "Select Bluetooth headset:" | grep -Eo "([0-9A-Fa-f]{2}:){5}([0-9A-Fa-f]{2})")
 
 # Connect to the selected headset
 bluetoothctl connect "$selected_headset"

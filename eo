@@ -1,0 +1,12 @@
+#!/bin/sh
+
+device="/dev/sda1"
+
+test $# -eq 1 && device="$1"
+
+lol=${device##*/}
+
+test ! -e /mnt/$lol && sudo mkdir /mnt/$lol
+
+sudo cryptsetup luksOpen $device $lol
+sudo mount /dev/mapper/$lol /mnt/$lol

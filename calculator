@@ -1,0 +1,2 @@
+#!/bin/sh
+rofi -show calc -font 'Tamzen 15' -theme glue_pro_blue | awk '{print $NF}' | xclip -sel c

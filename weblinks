@@ -19,7 +19,7 @@ mastodon
 ebay thinkpads
 amazon"
 
-set selected (echo $options | rofi -dmenu -font "Tamzen 15" -theme glue_pro_blue)
+set selected (echo $options | rofi -dmenu -font "mono 18" -theme glue_pro_blue)
 
 switch $selected
     case "hackernews"

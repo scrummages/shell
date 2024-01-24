@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 echo -n "$RANDOM$RANDOM" > /tmp/r && \
 where="xclip-$(cat /tmp/r)" && \

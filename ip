@@ -1,2 +1,2 @@
-#!/bin/sh
-rofi -font 'Tamzen 15' -theme glue_pro_blue -e "$(wget -qO- ipinfo.io)"
+#!/bin/bash
+rofi -font 'mono 18' -theme glue_pro_blue -e "$(wget -qO- ipinfo.io)"

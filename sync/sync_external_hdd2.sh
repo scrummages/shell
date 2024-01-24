@@ -1,4 +1,4 @@
-target_uuid="b0fa1538-eb1c-47cc-99f2-439157b62728"
+target_uuid="de2ddbb1-0b64-4bfa-a148-d4732b9eed0b"
 
 blkid_output=$(blkid)
 
@@ -12,9 +12,9 @@ else
     exit 1
 fi
 
-sudo cryptsetup luksOpen $device_name hdd2 \
-&& sudo mount /dev/mapper/hdd2 /mnt/hdd2 \
-&& rsync -av --delete --exclude WIKIs --exclude ISO ~/Media/ /mnt/hdd2 \
-&& sudo umount /mnt/hdd2 \
-&& sudo cryptsetup luksClose hdd2
+sudo cryptsetup luksOpen $device_name hdd3 \
+&& sudo mount /dev/mapper/hdd3 /mnt/hdd3 \
+&& rsync -av --delete --exclude WIKIs --exclude ISO ~/Media/ /mnt/hdd3 \
+&& sudo umount /mnt/hdd3 \
+&& sudo cryptsetup luksClose hdd3
 

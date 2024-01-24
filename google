@@ -1,6 +1,6 @@
 #!/bin/bash
 
-query=$(rofi -dmenu -i -p "Google search" -font 'Tamzen 15' -theme glue_pro_blue -show-icons -lines 0 -no-fixed-num-lines)
+query=$(rofi -dmenu -i -p "Google search" -font 'mono 18' -theme glue_pro_blue -show-icons -lines 0 -no-fixed-num-lines)
 
 if [ -n "$query" ]; then
     waterfox "https://www.google.es/search?q=$query" &

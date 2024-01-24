@@ -1,0 +1,2 @@
+#!/bin/bash
+response=$(echo -e "yes\nno" | rofi -dmenu -p "Exit i3? This will end your X session." -font 'mono 18' -theme glue_pro_blue) && [ "$response" == "yes" ] && i3-msg exit

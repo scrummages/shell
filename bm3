@@ -3,7 +3,7 @@
 file_path="$HOME/Media/Random/bm3_data.txt"
 
 delete_entry() {
-    selected_line=$(cat "$file_path" | rofi -dmenu -p "Select information to delete" -width 60 -location 0 -font 'Tamzen 15' -theme glue_pro_blue)
+    selected_line=$(cat "$file_path" | rofi -dmenu -p "Select information to delete" -width 60 -location 0 -font 'mono 18' -theme glue_pro_blue)
     [ -n "$selected_line" ] && sed -i "/$(echo "$selected_line" | sed 's/[\/&]/\\&/g')/d" "$file_path"
 }
 
@@ -12,17 +12,17 @@ save_info() {
 }
 
 select_info() {
-    selected_line=$(cat "$file_path" | rofi -dmenu -p "Select information" -width 60 -location 0 -font 'Tamzen 15' -theme glue_pro_blue)
+    selected_line=$(cat "$file_path" | rofi -dmenu -p "Select information" -width 60 -location 0 -font 'mono 18' -theme glue_pro_blue)
     [ -n "$selected_line" ] && echo -n "$selected_line" | cut -d' ' -f3- | xclip -selection clipboard
 }
 
 options=("save information (w)" "show information (x)" "delete entry (d)")
 
-selected_option=$(printf "%s\n" "${options[@]}" | rofi -dmenu -p "Select an option" -font 'Tamzen 15' -theme glue_pro_blue)
+selected_option=$(printf "%s\n" "${options[@]}" | rofi -dmenu -p "Select an option" -font 'mono 18' -theme glue_pro_blue)
 
 case $selected_option in
     "save information (w)")
-        new_info=$(rofi -dmenu -p "Enter information to save" -font 'Tamzen 15' -theme glue_pro_blue)
+        new_info=$(rofi -dmenu -p "Enter information to save" -font 'mono 18' -theme glue_pro_blue)
         save_info "$new_info"
         ;;
     "show information (x)")

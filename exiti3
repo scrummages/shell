@@ -1,2 +1,18 @@
 #!/bin/bash
-response=$(echo -e "yes\nno" | rofi -dmenu -p "Exit i3? This will end your X session." -font 'mono 18' -theme glue_pro_blue) && [ "$response" == "yes" ] && i3-msg exit
+
+options="exit i3\npoweroff\nreboot\ncancel"
+response=$(echo -e "$options" | rofi -dmenu -p "Select an option:" -font 'mono 18' -theme glue_pro_blue)
+
+case "$response" in
+    "exit i3")
+        i3-msg exit
+        ;;
+    "poweroff")
+        shutdown now
+        ;;
+    "reboot")
+        reboot
+        ;;
+    "cancel")
+        ;;
+esac

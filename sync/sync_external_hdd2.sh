@@ -16,5 +16,6 @@ sudo cryptsetup luksOpen $device_name hdd3 \
 && sudo mount /dev/mapper/hdd3 /mnt/hdd3 \
 && rsync -av --delete --exclude WIKIs --exclude ISO ~/Media/ /mnt/hdd3 \
 && sudo umount /mnt/hdd3 \
-&& sudo cryptsetup luksClose hdd3
+&& sudo cryptsetup luksClose hdd3 \
+&& sync
 

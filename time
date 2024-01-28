@@ -1,0 +1,4 @@
+#!/bin/bash
+rofi -font 'mono 18' -theme glue_pro_blue -e "$(date +"%a, %d %b %Y %T %Z")
+
+$(cal -3)"

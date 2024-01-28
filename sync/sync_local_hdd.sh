@@ -47,4 +47,5 @@ sudo cryptsetup luksOpen $device_name hdd \
     rsync -av --delete --exclude WIKIs --exclude ISO ~/Media/ /mnt/hdd
 fi \
 && sudo umount /mnt/hdd \
-&& sudo cryptsetup luksClose hdd
+&& sudo cryptsetup luksClose hdd \
+&& sync

@@ -1,4 +1,5 @@
 cp ~/.bashrc ~/Media/Configs/.bashrc \
+&& cp ~/.bash_functions ~/Media/Configs/.bash_functions \
 && cp -avp ~/.config/micro/settings.json ~/Media/Configs/config/micro/settings.json \
 && cp -avp ~/.config/i3/config ~/Media/Configs/config/i3/config \
 && cp -avp ~/.config/i3status/config ~/Media/Configs/config/i3status/config \

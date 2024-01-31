@@ -8,7 +8,8 @@ twitch
 youtube
 hackernews
 wikipedia
-wiktionary
+wiktionary es
+wiktionary en
 dle rae
 oxford dictionary
 pinterest
@@ -24,56 +25,40 @@ set selected (echo $options | rofi -dmenu -font "mono 18" -theme glue_pro_blue)
 switch $selected
     case "hackernews"
         waterfox "https://news.ycombinator.com/active"
-        ;;
     case "chatgpt"
         waterfox "https://chat.openai.com/chat/"
-        ;;
     case "bing ai"
         waterfox "https://www.bing.com/search?q=Bing+AI&showconv=1&FORM=hpcodx/"
-        ;;
     case "gmail"
         waterfox "https://gmail.com/"
-        ;;
     case "twitter"
         waterfox "https://twitter.com/"
-        ;;
     case "twitch"
         waterfox "https://www.twitch.tv/"
-        ;;
     case "youtube"
         waterfox "https://www.youtube.com/"
-        ;;
     case "wikipedia"
         waterfox "https://en.wikipedia.org/"
-        ;;
-    case "wiktionary"
+    case "wiktionary es"
         waterfox "https://es.wiktionary.org/"
-        ;;
+    case "wiktionary en"
+        waterfox "https://en.wiktionary.org/"
     case "oxford dictionary"
         waterfox "https://www.oxfordlearnersdictionaries.com/"
-        ;;
     case "dle rae"
         waterfox "https://dle.rae.es/diccionario/"
-        ;;
     case "pinterest"
         waterfox "https://www.pinterest.com/"
-        ;;
     case "reddit"
         waterfox "https://www.reddit.com/"
-        ;;
     case "instagram"
         waterfox "https://www.instagram.com/"
-        ;;
     case "mastodon"
         waterfox "mastodon.social/"
-        ;;
     case "123movies"
         waterfox "https://ww2.123moviesfree.net/"
-        ;;
     case "amazon"
         waterfox "amazon.es"
-        ;;
     case "ebay thinkpads"
         waterfox "https://www.ebay.es/sch/i.html?_from=R40&_nkw=thinkpad&_sacat=0&LH_ItemCondition=3000&LH_BIN=1&LH_PrefLoc=3&_udhi=60&_sop=12"
-        ;;
 end

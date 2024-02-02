@@ -1,7 +1,7 @@
-cp ~/.bashrc ~/Media/Code/Configs/.bashrc \
-&& cp -ravp ~/.config/fish/ ~/Media/Code/Configs/config/fish/ \
-&& cp -avp ~/.vimrc ~/Media/Code/Configs/.vimrc \
-&& cp -avp ~/.bash_functions ~/Media/Code/Configs/.bash_functions \
+cp ~/.bashrc ~/Media/Code/Configs/home/.bashrc \
+&& rsync -av --delete ~/.config/fish/ ~/Media/Code/Configs/config/fish/ \
+&& cp -avp ~/.vimrc ~/Media/Code/Configs/home/.vimrc \
+&& cp -avp ~/.bash_functions ~/Media/Code/Configs/home/.bash_functions \
 && cp -avp ~/.config/micro/settings.json ~/Media/Code/Configs/config/micro/settings.json \
 && cp -avp ~/.config/i3/config ~/Media/Code/Configs/config/i3/config \
 && cp -avp ~/.config/i3status/config ~/Media/Code/Configs/config/i3status/config \

@@ -2,6 +2,7 @@ cp ~/.bashrc ~/Media/Code/Configs/home/.bashrc \
 && rsync -av --delete ~/.config/fish/ ~/Media/Code/Configs/config/fish/ \
 && rsync -av --delete --exclude buffers --exclude backups ~/.config/micro/ ~/Media/Code/Configs/config/micro/ \
 && cp -avp ~/.vimrc ~/Media/Code/Configs/home/.vimrc \
+&& cp -avp ~/.Xresources ~/Media/Code/Configs/home/.Xresources \
 && cp -avp ~/.bash_functions ~/Media/Code/Configs/home/.bash_functions \
 && cp -avp ~/.config/i3/config ~/Media/Code/Configs/config/i3/config \
 && cp -avp ~/.config/i3status/config ~/Media/Code/Configs/config/i3status/config \

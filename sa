@@ -5,8 +5,8 @@ where="xclip-$(cat /tmp/r)" && \
 
 if [ "$(pwd)" != "$HOME" ]; then
 	xclip -selection clipboard -t image/png -o > $where.png && \
-	cjxl --lossless_jpeg=1 $where.png $where.jxl && rm $where.png || echo "error saving pic"
+	cjxl -e 9 --lossless_jpeg=1 $where.png $where.jxl && rm $where.png || echo "error saving pic"
 else
 	xclip -selection clipboard -t image/png -o > ~/Desktop/$where.png && \
-	cjxl --lossless_jpeg=1 ~/Desktop/$where.png ~/Desktop/$where.jxl && rm ~/Desktop/$where.png || notify-send "error saving pic"
+	cjxl -e 9 --lossless_jpeg=1 ~/Desktop/$where.png ~/Desktop/$where.jxl && rm ~/Desktop/$where.png || notify-send "error saving pic"
 fi

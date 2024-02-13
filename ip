@@ -1,2 +1,0 @@
-#!/bin/bash
-rofi -font 'mono 18' -theme glue_pro_blue -e "$(wget -qO- ipinfo.io)"

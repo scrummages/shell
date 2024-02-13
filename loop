@@ -1,0 +1,11 @@
+#!/bin/bash
+
+while true; do
+	xmodmap -e "clear Lock" -e "keycode 66 = backslash"
+	xinput set-prop "SINOWEALTH GXT 970 Gaming Mouse" "libinput Accel Speed" -0.5
+	sleep 6
+done
+
+#xrdb -merge ~/.Xresources
+#^^^^^^^^^^^^^^^^^^^^^^^^^
+#maybe add this

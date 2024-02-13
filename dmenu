@@ -1,2 +1,0 @@
-#!/bin/bash
-rofi -show drun -show-icons -font 'mono 14' -theme glue_pro_blue

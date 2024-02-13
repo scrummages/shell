@@ -1,8 +1,0 @@
-#!/bin/bash
-
-# Check if the script is being run interactively
-if [ -t 0 ]; then
-    rofi -font 'Tamzen 15' -theme glue_pro_blue -e "Script is being run interactively"
-else
-   rofi -font 'Tamzen 15' -theme glue_pro_blue -e "NOT being run interactively"
-fi

@@ -1,0 +1,20 @@
+#!/bin/bash
+
+echo -e "$(tput setaf 39)
+     _             _
+    / \   _ __ ___| |__       Packages: $(tput sgr0)$(pacman -Qqe | wc -l) / $(pacman -Qq | wc -l)$(tput setaf 39)
+   / _ \ | '__/ __| '_ \\      Kernel: $(tput sgr0)$(uname -r)$(tput setaf 39)
+  / ___ \| | | (__| | | |     Shell: $(tput sgr0)$(echo $SHELL)$(tput setaf 39)
+ /_/   \_\_|  \___|_| |_|     
+  _     _                     
+ | |   (_)_ __  _   ___  __   RAM: $(tput sgr0)"$(free --mega | awk '/^Mem:/ {print $3 "MB" " / " $2 "MB"}') "$(tput setaf 39)
+ | |   | | '_ \| | | \ \/ /   CPU: $(tput sgr0)$(echo $(grep -m1 'model name' /proc/cpuinfo | awk -F': ' '{print $2}' | sed 's/([^()]*)//g'))$(tput setaf 39)
+ | |___| | | | | |_| |>  <    GPU: $(tput sgr0)$(lspci | grep -i 'VGA' | awk -F': ' '{print $2}' | sed 's/(rev ..)//g' | head -n1 | sed -n 's/.*\[\(.*\)\].*/\1/p')$(tput setaf 39)
+ |_____|_|_| |_|\__,_/_/\_\\  
+
+$(tput sgr0)"
+
+#
+#  sfetch 1.0.0
+#  by clyde, on 18 feb 2024 at 16:39 CET
+#

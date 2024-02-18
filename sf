@@ -8,7 +8,7 @@ echo -e "$(tput setaf 39)
  /_/   \_\_|  \___|_| |_|     Term: $(tput sgr0)$(echo $TERM)$(tput setaf 39)
   _     _                     
  | |   (_)_ __  _   ___  __   RAM: $(tput sgr0)"$(free --mega | awk '/^Mem:/ {print $3 "MB" " / " $2 "MB"}') "$(tput setaf 39)
- | |   | | '_ \| | | \ \/ /   CPU: $(tput sgr0)$(echo $(grep -m1 'model name' /proc/cpuinfo | awk -F': ' '{print $2}' | sed 's/([^()]*)//g'))$(tput setaf 39)
+ | |   | | '_ \| | | \ \/ /   CPU: $(tput sgr0)$(echo $(grep -m1 'model name' /proc/cpuinfo | awk -F': ' '{print $2}' | sed 's/with.*$//'))$(tput setaf 39)
  | |___| | | | | |_| |>  <    GPU: $(tput sgr0)$(lspci | grep -i 'VGA' | awk -F': ' '{print $2}' | sed 's/(rev ..)//g' | head -n1 | sed -n 's/.*\[\(.*\)\].*/\1/p')$(tput setaf 39)
  |_____|_|_| |_|\__,_/_/\_\\  
 

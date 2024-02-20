@@ -1,3 +1,5 @@
+#!/bin/bash
+
 cp ~/.bashrc ~/Media/Code/Configs/home/.bashrc \
 && rsync -av --delete ~/.config/fish/ ~/Media/Code/Configs/config/fish/ \
 && rsync -av --delete --exclude buffers --exclude backups ~/.config/micro/ ~/Media/Code/Configs/config/micro/ \

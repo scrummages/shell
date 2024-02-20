@@ -1,6 +1,8 @@
+#!/bin/bash
+
 target_uuid="de2ddbb1-0b64-4bfa-a148-d4732b9eed0b"
 
-blkid_output=$(blkid)
+blkid_output=$(sudo blkid)
 
 if grep -q "$target_uuid" <<< "$blkid_output"; then
     device_name=$(grep "$target_uuid" <<< "$blkid_output" | cut -d: -f1)

@@ -2,11 +2,11 @@
 
 echo -n "$(tr -dc "a-z" </dev/urandom | head -c 10)" > /tmp/r && \
 where="xclip-$(cat /tmp/r)" && \
+(
+  xclip -selection clipboard -t image/jpeg -o > "$( [ "$(pwd)" != "$HOME" ] && echo "$where.jpeg" || echo "~/Desktop/$where.jpeg" )" && \
+  cjxl -e 9 --lossless_jpeg=1 "$( [ "$(pwd)" != "$HOME" ] && echo "$where.jpeg" || echo "~/Desktop/$where.jpeg" )" \
+  "$( [ "$(pwd)" != "$HOME" ] && echo "$where.jxl" || echo "~/Desktop/$where.jxl" )" && \
+  rm "$( [ "$(pwd)" != "$HOME" ] && echo "$where.jpeg" || echo "~/Desktop/$where.jpeg" )" || \
+  ( [ "$(pwd)" != "$HOME" ] && echo "error saving pic" || notify-send "error saving pic" )
+) > /dev/null 2>&1 &
 
-if [ "$(pwd)" != "$HOME" ]; then
-	(xclip -selection clipboard -t image/png -o > $where.png && \
-	cjxl -e 9 --lossless_jpeg=1 $where.png $where.jxl && rm $where.png || echo "error saving pic") > /dev/null 2>&1 &
-else
-	(xclip -selection clipboard -t image/png -o > ~/Desktop/$where.png && \
-	cjxl -e 9 --lossless_jpeg=1 ~/Desktop/$where.png ~/Desktop/$where.jxl && rm ~/Desktop/$where.png || notify-send "error saving pic") > /dev/null 2>&1 &
-fi

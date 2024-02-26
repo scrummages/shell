@@ -4,10 +4,11 @@ while true; do
 	touch '/tmp/loop_going_on'
 
 	xmodmap -e "clear Lock" -e "keycode 66 = backslash" 2>> /tmp/loop_going_on
-	xinput set-prop "SINOWEALTH GXT 970 Gaming Mouse" "libinput Accel Speed" -0.5 2>> /tmp/loop_going_on
+	{ xinput set-prop "SINOWEALTH GXT 970 Gaming Mouse" \
+    "libinput Accel Speed" -0.5 || \
+    xinput set-prop "TPPS/2 IBM TrackPoint" \
+    "libinput Accel Speed" -1 || \
+    xinput set-prop "SIGMACHIP Usb Mouse" \
+    "libinput Accel Speed" -1 ; }
 	sleep 6
 done
-
-#xrdb -merge ~/.Xresources
-#^^^^^^^^^^^^^^^^^^^^^^^^^
-#maybe add this
